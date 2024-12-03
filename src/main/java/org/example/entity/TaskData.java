@@ -7,13 +7,13 @@ public class TaskData {
 
     private Set<Task> annsTasks;
     private Set<Task> bobsTasks;
-    private Set<Task> carolsTask;
+    private Set<Task> carolsTasks;
     private Set<Task> unassignedTasks;
 
-    public TaskData(Set<Task> annsTasks, Set<Task> bobsTasks, Set<Task> carolsTask, Set<Task> unassignedTasks) {
+    public TaskData(Set<Task> annsTasks, Set<Task> bobsTasks, Set<Task> carolsTasks, Set<Task> unassignedTasks) {
         this.annsTasks = annsTasks;
         this.bobsTasks = bobsTasks;
-        this.carolsTask = carolsTask;
+        this.carolsTasks = carolsTasks;
         this.unassignedTasks = unassignedTasks;
     }
 
@@ -24,9 +24,9 @@ public class TaskData {
             case "bob":
                 return this.bobsTasks;
             case "carol":
-                return this.carolsTask;
+                return this.carolsTasks;
             case "all":
-                return getUnion(bobsTasks, annsTasks, carolsTask);
+                return getUnion(bobsTasks, annsTasks, carolsTasks);
         }
         return new HashSet<>();
     }
@@ -43,7 +43,7 @@ public class TaskData {
         intersection.retainAll(second);
         return intersection;
     }
-    public Set<Task> getDifference(Set<Task> first, Set<Task> second) {
+    public Set<Task> getDifferences(Set<Task> first, Set<Task> second) {
         Set<Task> difference = new HashSet<>(first);
         difference.removeAll(second);
         return difference;
@@ -57,11 +57,13 @@ public class TaskData {
         return bobsTasks;
     }
 
-    public Set<Task> getCarolsTask() {
-        return carolsTask;
+    public Set<Task> getCarolsTasks() {
+        return carolsTasks;
     }
 
     public Set<Task> getUnassignedTasks() {
         return unassignedTasks;
     }
+
+
 }

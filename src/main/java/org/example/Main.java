@@ -1,9 +1,6 @@
 package org.example;
 
-import org.example.entity.Priority;
-import org.example.entity.Status;
-import org.example.entity.Task;
-import org.example.entity.TaskData;
+import org.example.entity.*;
 
 import java.sql.SQLOutput;
 import java.util.HashSet;
@@ -38,7 +35,12 @@ public class Main {
         System.out.println("annstasks:" + taskData.getTasks("ann"));
         System.out.println("alltasks:" + taskData.getTasks("all"));
 
+        taskData.getIntersection(annsTasks,bobsTasks);
+        taskData.getIntersection(annsTasks,carolsTasks);
+        taskData.getIntersection(bobsTasks,carolsTasks);
 
+        System.out.println("unassigned: " + taskData.getDifferences(unassignedTasks,taskData.getTasks("ann")));
 
+        StringSet.findUniqueWords();
     }
 }
